@@ -39,6 +39,7 @@ public class MagicSquares {
                 if (numCols == -1) { numCols = parts.length; }
                 matrix.add(row);
             }
+            reader.close();
 
             // Check if the matrix is square
             if (numRows != numCols) return false;
@@ -69,10 +70,7 @@ public class MagicSquares {
                 MainSum += matrix.get(i)[i];
                 AntiSum += matrix.get(i)[numRows - 1 - i];
             }
-            if (MainSum != LineSum || AntiSum != LineSum) return false;
-
-            reader.close();
-            return true;
+            return MainSum == LineSum && AntiSum == LineSum;
         } catch (FileNotFoundException e) {
             throw new IOException("File not found: " + e.getMessage());
         }
