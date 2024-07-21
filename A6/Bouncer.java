@@ -2,7 +2,7 @@ package A6;
 
 import java.awt.Graphics;
 
-public class Bouncer {
+public class Bouncer implements Mover{
     private int x;
     private int y;
     private int xDirection;
@@ -17,12 +17,14 @@ public class Bouncer {
     }
 
     /** Starts moving the object in the direction (xIncrement, yIncrement). */
+    @Override
     public void setMovementVector(int xIncrement, int yIncrement) {
         xDirection = xIncrement;
         yDirection = yIncrement;
     }
 
     /** Draws the sprite at its current position on to surface. */
+    @Override
     public void draw(Graphics surface) {
         // Draw the sprite
         sprite.draw(surface, x, y);
